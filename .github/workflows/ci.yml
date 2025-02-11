@@ -1,0 +1,24 @@
+name: CI # Workflow name: You can change this
+
+on: # Workflow triggers
+  push:
+    branches: [ "master" ] # Trigger on push events to the 'main' branch
+  pull_request:
+    branches: [ "master" ] # Trigger on pull requests targeting the 'main' branch
+
+jobs: # Define jobs to run
+  build: # Job name: You can change this
+    runs-on: ubuntu-latest # Operating system to run the job on
+
+    steps: # Steps within the 'build' job
+      - uses: actions/checkout@v3 # Step 1: Checkout your code
+      - name: Set up Go # Step 2: Set up Go environment
+        uses: actions/setup-go@v3
+        with:
+          go-version: '1.23' # Specify your Go version (or '>=1.20')
+
+      - name: Build # Step 3: Build your Go application (optional, but good for CI)
+        run: go build -v -o jwt-auth-system ./main.go
+
+      - name: Test # Step 4: Run Go tests
+        run: go test ./... -v # Runs tests in all packages recursively (-v for verbose output)
