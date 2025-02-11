@@ -1,0 +1,22 @@
+app:
+  name: "JWT Auth System"
+  port: "8080"
+  environment: "development" # or "production", "staging"
+
+database:
+  host: "localhost"
+  port: "5432"
+  user: "postgres" # Replace with your Postgres user
+  password: "h4ljXt1Gi2ZW(iJ8" # Replace with your Postgres password
+  dbname: "jwt_auth_db" # Replace with your desired database name
+  sslmode: "disable" # For local development, you can disable SSL
+
+redis:
+  host: "localhost"
+  port: "6379"
+  db: 0 # Default Redis DB
+
+jwt:
+  secret_key: "your-secret-key-here" # Replace with a strong, random secret key
+  token_expiry_minutes: 15
+  refresh_token_expiry_hours: 72
