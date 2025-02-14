@@ -1,7 +1,9 @@
 package main
 
-import "github.com/raihankhan/jwt-auth-system/cmd/root"
+import (
+	"github.com/raihankhan/jwt-auth-system/cmd"
+)
 
 func main() {
-	root.Execute()
+	cmd.Execute()
 }
